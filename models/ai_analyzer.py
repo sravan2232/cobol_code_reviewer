@@ -15,5 +15,15 @@ def ask_ai(prompt, model="gpt-3.5-turbo"):
             temperature=0.3
         )
         return response.choices[0].message.content.strip()
-    except openai.RateLimitError:
-        return "⚠️ Rate limit reached. Please try again later or check your OpenAI usage."
+    
+    except openai.RateLimitError as e:
+        st.error("⚠️ OpenAI Rate Limit Reached. Please check your usage or try again later.")
+        return "Rate limit error."
+    
+    except openai.OpenAIError as e:
+        st.error(f"❌ OpenAI API error: {str(e)}")
+        return "OpenAI error occurred."
+    
+    except Exception as e:
+        st.error(f"❌ Unexpected error: {str(e)}")
+        return "Something went wrong."
