@@ -23,7 +23,7 @@ if uploaded_file:
                 st.code(parsed[key])
 
         st.subheader("🧠 AI Explanation (Procedure Division)")
-        explanation = ask_local_ai(
+        explanation = ask_ai(
             f"Explain the following COBOL PROCEDURE DIVISION in simple terms for a junior developer:\n\n{parsed['PROCEDURE DIVISION']}"
         )
         st.write(explanation)
