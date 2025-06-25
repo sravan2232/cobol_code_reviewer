@@ -1,7 +1,7 @@
 import streamlit as st
 from pathlib import Path
 from parsers.cobol_parsers import parse_cobol_code
-from models.ai_analyzer import ask_local_ai
+from models.ai_analyzer import ask_ai
 
 st.set_page_config(page_title="COBOL Code Reviewer", layout="wide")
 st.title("🔍 AI-powered COBOL Code Reviewer")
